@@ -3,7 +3,14 @@ Jupyterhub instand on for Papa's and Mam's administrating their family ;) and al
 
 # What is in the box
 One gets a running jupyterhub with sudospawner on a standalone debian (11) setup, it may work on others but thats on you.
-My family runs there busyness on Debian, therefore this is the way to go. Some setups run in a LXC-Container on a proxmox server some on Notebooks for takeaway.
+My family runs there business on Debian, therefore **this is the way** (and yes i kept my helmet on ;)). 
+
+Some setups run in a LXC-Container on a proxmox server some on Laptops for takeaway.
+
+# How to open the box / install it
+
+Just download the released .deb and run dpkg -i as root, after that you go for apt install --fix-broken and you are good.
+(you can also clone the repo and use the buildscript to build it local on your machine, if that helps for some reason. If you have a local repo just copy over and update the index.)
 
 # How does it work.
 The architecture splits up into 3 main parts.
