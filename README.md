@@ -31,6 +31,10 @@ The architecture splits up into 3 main parts.
 
 In case you do not want to give up all administrative task on your setup, one is able to delegate the jupyterhub membership administration by adding the delegates to the **jupyterhub_adm** group. Done so they can use the provided member.sh script to add/remove/show members of the access group.
 
+# Debugging
+
+In case something does not run as expected you have to make your hands dirty, just impersonate the jupyterhub account and use **screen -r** to attached to the running jupyterhub instance it was started in debug mode and will provide you some ideas. Beyond that you have to know what to do.
+
 # Roadmap
 
 - TODO: Enable per default self-signed https for login
