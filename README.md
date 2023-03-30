@@ -1,5 +1,5 @@
 # jupyterhub4family
-Jupyterhub instand on for Papas and Mamas administrating their family ;) and all other who can make use of it.
+Jupyterhub instand on for Papa's and Mam's administrating their family ;) and all other who can make use of it.
 
 # What is in the box
 One gets a running jupyterhub with sudospawner on a standalone debian (11) setup, it may work on others but thats on you.
@@ -18,6 +18,12 @@ The architecture splits up into 3 main parts.
     - if you are member of the jupyterhub-group you can login on the jupyterhub portal (default: http://127.0.0.1:8000) and use your server (named-servers enabled). 
     - During first spawn (which may fail - as the timeout maybe reached) - the spawner installs all needed packages into your account.
     - **Hint**: if you need different setups - use different accounts to get this as cheap as possible, means you can install packages/up and downgrade as you like. The Spawner gets only active if juypterhub-singleuser, jupyterlab or jupyter-notebook is missing.
+
+# Roadmap
+
+- TODO: Enable per default self-signed https for login
+- Next Level: Decide on if the setup should be based on conda instead of native debian foundation.
+- Next Level: Decide if a node jump is needed for e.g. bigger workloads (exceeding the local low budget laptop, maybe mam or dad has a big NAS is the basement)
 
 Thats it.
 Enjoy.
