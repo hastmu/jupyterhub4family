@@ -27,9 +27,9 @@ The architecture splits up into 3 main parts.
     - During first spawn (which may fail - as the timeout maybe reached) - the spawner installs all needed packages into your account.
     - **Hint**: if you need different setups - use different accounts to get this as cheap as possible, means you can install packages/up and downgrade as you like. The Spawner gets only active if juypterhub-singleuser, jupyterlab or jupyter-notebook is missing.
 
-# Administrate access
+# Docs
 
-In case you do not want to give up all administrative task on your setup, one is able to delegate the jupyterhub membership administration by adding the delegates to the **jupyterhub_adm** group. Done so they can use the provided member.sh script to add/remove/show members of the access group.
+More details you find under [docs/README.md](docs/README.md)
 
 # Debugging
 
