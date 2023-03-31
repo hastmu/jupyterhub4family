@@ -1,0 +1,35 @@
+#!/bin/bash
+
+set -e
+
+echo "postinst: $0 $@"
+
+# create user
+if getent passwd jupyterhub >> /dev/null 2>&1
+then
+   echo "- user:jupyterhub exists"
+   id -a jupyterhub
+else
+   # does not exists
+   echo "- create user:jupyterhub"
+   adduser --gecos "jupyterhub-service-account" --disabled-password jupyterhub
+fi 
+
+if [ $(id -Gn jupyterhub | grep shadow | wc -l) -eq 0 ]
+then
+   echo "- enable pam by adding to shadow group"
+   adduser jupyterhub shadow
+fi
+
+# create user
+if getent group jupyterhub_adm >> /dev/null 2>&1
+then
+   echo "- group:jupyterhub_adm exists"
+   getent group jupyterhub_adm
+else
+   # does not exists
+   echo "- create group:jupyterhub_adm"
+   addgroup jupyterhub_adm
+fi 
+
+sudo -u jupyterhub -i /usr/share/jupyterhub/home/jupyterhub/install.sh

@@ -1,0 +1,7 @@
+Cmnd_Alias JH_CMD = ALL
+Defaults!JH_CMD env_keep+=*
+
+jupyterhub ALL=(%jupyterhub) NOPASSWD: JH_CMD
+# TODO make that more precise
+%jupyterhub_adm ALL=(root) NOPASSWD: /usr/share/jupyterhub/home/jupyterhub/members.sh
+
