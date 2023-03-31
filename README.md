@@ -45,6 +45,7 @@ In case something does not run as expected you have to make your hands dirty, ju
 # Roadmap
 
 - TODO: Enable per default self-signed https for login
+- TODO: Complete the non-deb docs.
 - Next Level: Decide on providing an auto-upgrade function.
 - Next Level: Decide on if the setup should be based on conda instead of native debian foundation.
 - Next Level: Decide if a node jump is needed for e.g. bigger workloads (exceeding the local low budget laptop, maybe mam or dad has a big NAS is the basement)

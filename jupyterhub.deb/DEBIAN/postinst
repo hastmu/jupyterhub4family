@@ -21,7 +21,7 @@ then
    adduser jupyterhub shadow
 fi
 
-# create user
+# create group
 if getent group jupyterhub_adm >> /dev/null 2>&1
 then
    echo "- group:jupyterhub_adm exists"
@@ -32,4 +32,5 @@ else
    addgroup jupyterhub_adm
 fi 
 
+# execute user part
 sudo -u jupyterhub -i /usr/share/jupyterhub/home/jupyterhub/install.sh

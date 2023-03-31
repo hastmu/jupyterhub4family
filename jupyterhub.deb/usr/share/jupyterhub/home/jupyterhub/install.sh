@@ -46,14 +46,24 @@ else
    # TODO update install if there was an update
 fi
 
+echo "- create link:start-jupyterhub.sh"
 if [ ! -h ~jupyterhub/.local/bin/start-jupyterhub.sh ]
 then
    ln -s /usr/share/jupyterhub/home/jupyterhub/start-jupyterhub.sh ~jupyterhub/.local/bin/start-jupyterhub.sh
 fi
 
+echo "- create link:sudospawner-singleuser"
 if [ ! -h ~jupyterhub/.local/bin/sudospawner-singleuser ]
 then
    ln -s /usr/share/jupyterhub/home/jupyterhub/start-user-session.sh ~jupyterhub/.local/bin/sudospawner-singleuser
 fi
 
 # setup cron to start the service if needed.
+echo "- update crontab"
+( 
+   crontab -l || true| grep -v '#jupyterhub-service#' ;
+   echo "* * * * * /usr/share/jupyterhub/home/jupyterhub/start-jupyterhub.sh #jupyterhub-service#"
+) | crontab
+
+echo "Done"
+
