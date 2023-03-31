@@ -12,6 +12,13 @@ Some setups run in a LXC-Container on a proxmox server some on Laptops for takea
 Just download the released .deb and run dpkg -i as root, after that you go for apt install --fix-broken and you are good.
 (you can also clone the repo and use the buildscript to build it local on your machine, if that helps for some reason. If you have a local repo just copy over and update the index.)
 
+```
+dpkg -i <deb-pkg>
+apt update && apt install --fix-broken
+```
+
+In case you like a non-deb way checkout [docs/README.md](docs/README.md).
+
 # How does it work.
 The architecture splits up into 3 main parts.
 
