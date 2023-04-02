@@ -30,7 +30,7 @@ The architecture splits up into 3 main parts.
     - jupyterhub itself gets setuped 100% in userspace, so all python and npm packages are installed locally under the account "jupyterhub".
     - a user cronjob is uses to start it.
 - The **User**-Part
-    - if you are member of the jupyterhub-group you can login on the jupyterhub portal (default: http://127.0.0.1:8000) and use your server (named-servers enabled). 
+    - if you are member of the jupyterhub-group you can login on the jupyterhub portal (default: https://127.0.0.1:8000) and use your server (named-servers enabled). 
     - During first spawn (which may fail - as the timeout maybe reached) - the spawner installs all needed packages into your account.
     - **Hint**: if you need different setups - use different accounts to get this as cheap as possible, means you can install packages/up and downgrade as you like. The Spawner gets only active if juypterhub-singleuser, jupyterlab or jupyter-notebook is missing.
 
