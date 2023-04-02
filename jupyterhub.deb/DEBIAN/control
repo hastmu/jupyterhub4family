@@ -1,8 +1,0 @@
-Package: jupyterhub
-Version: 1.0.0-203
-Section: base 
-Priority: optional 
-Architecture: all
-Depends: python3,python3-pip,sudo,nodejs,npm,git,cron,screen
-Maintainer: gh-hastmu@gmx.de
-Description: Jupyterhub package for a standalone Debian Node
