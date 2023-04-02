@@ -10,10 +10,12 @@ case "$1"
 in
 start) {
 
+    export PATH=~/.local/bin:${PATH}
+    export PATH=~/node_modules/.bin:${PATH}
     if [ ! -r ~jupyterhub/etc/jupyterhub_config.py ]
     then
-    mkdir -p ~jupyterhub/etc
-    jupyterhub --generate-config -y=True -f ~jupyterhub/etc/jupyterhub_config.py
+        mkdir -p ~jupyterhub/etc
+        jupyterhub --generate-config -y=True -f ~jupyterhub/etc/jupyterhub_config.py
     fi
 
     (
@@ -34,7 +36,14 @@ start) {
     #TODO make that extract out of the real env.
     export PYTHONPATH=/home/jupyterhub/.local/lib/python3.9/site-packages
     shift
-    exec jupyterhub --debug -f ~jupyterhub/etc/jupyterhub_config.py ${1+"$@"}
+    if [ -r ~jupyterhub/etc/cert.key ] && [ -r ~jupyterhub/etc/cert.crt ]
+    then
+       exec jupyterhub --debug -f ~jupyterhub/etc/jupyterhub_config.py \
+              --ssl-key ~jupyterhub/etc/cert.key --ssl-cert ~jupyterhub/etc/cert.crt \
+              ${1+"$@"}
+    else
+       exec jupyterhub --debug -f ~jupyterhub/etc/jupyterhub_config.py ${1+"$@"}
+    fi
 
 } ;;
 

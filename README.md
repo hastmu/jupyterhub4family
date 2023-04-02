@@ -44,12 +44,16 @@ In case something does not run as expected you have to make your hands dirty, ju
 
 # Roadmap
 
-- TODO: Enable per default self-signed https for login
-- TODO: Complete the non-deb docs.
-- DONE: Decide if package should be called jupyterhub or jupyterhub4family -> decided to jupyterhub4family as it is not jupyterhub it is a software appliance for a dedicated purpose.
-- Next Level: Decide on providing an auto-upgrade function.
-- Next Level: Decide on if the setup should be based on conda instead of native debian foundation.
-- Next Level: Decide if a node jump is needed for e.g. bigger workloads (exceeding the local low budget laptop, maybe mam or dad has a big NAS is the basement)
+- Pre-Release items:
+    - TODO: Review security settings of the jupyterhub setup.
+    - DONE: Enable per default self-signed https for login
+    - TODO: Complete the non-deb docs.
+    - DONE: Decide if package should be called jupyterhub or jupyterhub4family -> decided to jupyterhub4family as it is not jupyterhub it is a software appliance for a dedicated purpose.
+- Release 1.0.0:
+- Next Level items:
+    - TODO: Decide on providing an auto-upgrade function.
+    - TODO: Decide on if the setup should be based on conda instead of native debian foundation.
+    - TODO: Decide if a node jump is needed for e.g. bigger workloads (exceeding the local low budget laptop, maybe mam or dad has a big NAS is the basement)
 
 Thats it.
 Enjoy.

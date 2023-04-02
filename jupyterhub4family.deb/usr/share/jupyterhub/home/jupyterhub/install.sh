@@ -60,10 +60,21 @@ fi
 
 # setup cron to start the service if needed.
 echo "- update crontab"
+set +e
 ( 
-   crontab -l || true| grep -v '#jupyterhub-service#' ;
+   (crontab -l || true) | grep -v '#jupyterhub-service#' ;
    echo "* * * * * /usr/share/jupyterhub/home/jupyterhub/start-jupyterhub.sh #jupyterhub-service#"
 ) | crontab
+set -e
+
+# self-signed certs
+echo "- check/create certs"
+if [ ! -e ~jupyterhub/etc/cert.crt ] || [ ! -e ~jupyterhub/etc/cert.key ]
+then
+   openssl req -newkey rsa:4096 -x509 -sha256 -days 3650 -nodes \
+               -out ~jupyterhub/etc/cert.crt -keyout ~jupyterhub/etc/cert.key \
+               -subj "/C=--/ST=--/L=--/O=--/OU=Family/CN=$(hostname -f)"
+fi
 
 echo "Done"
 
