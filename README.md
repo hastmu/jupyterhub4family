@@ -49,6 +49,7 @@ In case something does not run as expected you have to make your hands dirty, ju
     - DONE: Enable per default self-signed https for login
     - TODO: Complete the non-deb docs.
     - DONE: Decide if package should be called jupyterhub or jupyterhub4family -> decided to jupyterhub4family as it is not jupyterhub it is a software appliance for a dedicated purpose.
+    - DONE: move service-bootstrap away from deb-package installations success path.
 - Release 1.0.0:
 - Next Level items:
     - TODO: Decide on providing an auto-upgrade function.
