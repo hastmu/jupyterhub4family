@@ -54,7 +54,7 @@ In case something does not run as expected you have to make your hands dirty, ju
 - Next Level items:
     - TODO: Decide on providing an auto-upgrade function.
     - TODO: Decide on if the setup should be based on conda instead of native debian foundation.
-    - TODO: Decide if a node jump is needed for e.g. bigger workloads (exceeding the local low budget laptop, maybe mam or dad has a big NAS is the basement)
+    - TODO: Decide if a node jump is needed for e.g. bigger workloads (exceeding the local low budget laptop, maybe mam or dad has a big NAS in the basement)
 
 Thats it.
 Enjoy.
