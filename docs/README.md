@@ -28,5 +28,5 @@ jupyterhub-member show
 
 # Install without deb.
 
-Look (here)[install-without-deb.html]
+Look [here](install-without-deb.html)
 
