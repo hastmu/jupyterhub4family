@@ -7,6 +7,7 @@ Meaning Jupyterhub, but easy
 -   no kubernetes
 -   no helm charts
 -   no cloud
+
 actually just your PC/Laptop on Debian 11 and thats it.
 
 And just to be clear nothing wrong about the technologies listed above, if you would like to learn them perfect,
