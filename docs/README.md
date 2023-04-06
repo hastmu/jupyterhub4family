@@ -28,5 +28,11 @@ jupyterhub-member show
 
 # Install without deb.
 
-Look [here](https://htmlpreview.github.io/?https://github.com/hastmu/jupyterhub4family/blob/main/docs/install-without-deb.html)
+I made a asciinema cast for you, so please do the following.
+
+```
+sudo apt install asciinema
+asciinema play -s <speed> https://github.com/hastmu/jupyterhub4family/raw/main/docs/install-without-deb.cast
+```
+for speed i recommend 1-10 - you can press space to pause at any time.
 
