@@ -28,11 +28,5 @@ jupyterhub-member show
 
 # Install without deb.
 
-## unpacking
-
-## sudo-stuff
-
-## service-install
-
-## service-start
+Look (here)[install-without-deb.html]
 
