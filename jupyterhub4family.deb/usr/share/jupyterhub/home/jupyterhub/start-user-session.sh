@@ -16,9 +16,9 @@ CFG[jupyter-notebook]="notebook"
 
 for item in ${!CFG[@]}
 do
-   if [ ! -x ~/.local/bin/${item} ]
+   if [ $(pip3 freeze | grep "^${CFG[${item}]}=" | wc -l) -eq 0 ]
    then
-      pip3 install --user ${CFG[${item}]}
+      PIP_BREAK_SYSTEM_PACKAGES=1 pip3 install --user ${CFG[${item}]}
    fi
 done
 

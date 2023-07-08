@@ -48,10 +48,10 @@ start) {
         mv -f ~jupyterhub/.bashrc.tmp ~jupyterhub/.bashrc
 
         echo "- check jupyterhub"
-        if [ ! -x ~jupyterhub/.local/bin/jupyterhub ]
+        if [ $(pip3 freeze | grep "^jupyterhub=" | wc -l) -eq 0 ]
         then
             echo "- install local jupyterhub"
-            pip3 install --user jupyterhub
+            PIP_BREAK_SYSTEM_PACKAGES=1 pip3 install --user jupyterhub
         fi
 
         if [ ! -r ~jupyterhub/etc/jupyterhub_config.py ]
@@ -86,7 +86,7 @@ start) {
             cd ~jupyterhub/git.wa
             git clone https://github.com/jupyterhub/sudospawner.git
             echo "- installing sudospawner..."
-            cd ~jupyterhub/git.wa/sudospawner ; pip3 install --user -e .
+            cd ~jupyterhub/git.wa/sudospawner ; PIP_BREAK_SYSTEM_PACKAGES=1 pip3 install --user -e .
             cd
         else
             echo "- update sudospawner from git..."
@@ -109,16 +109,16 @@ start) {
     chmod g+x ~/.
     chmod -R g+rx .local
 
-    #TODO make that extract out of the real env.
-    export PYTHONPATH=/home/jupyterhub/.local/lib/python3.9/site-packages
+    #DONE make that extract out of the real env.
+    export PYTHONPATH=$(python3 -m site --user-site)
     shift
     if [ -r ~jupyterhub/etc/cert.key ] && [ -r ~jupyterhub/etc/cert.crt ]
     then
-       exec jupyterhub --debug -f ~jupyterhub/etc/jupyterhub_config.py \
+       exec jupyterhub --upgrade-db --debug -f ~jupyterhub/etc/jupyterhub_config.py \
               --ssl-key ~jupyterhub/etc/cert.key --ssl-cert ~jupyterhub/etc/cert.crt \
               ${1+"$@"}
     else
-       exec jupyterhub --debug -f ~jupyterhub/etc/jupyterhub_config.py ${1+"$@"}
+       exec jupyterhub --upgrade-db --debug -f ~jupyterhub/etc/jupyterhub_config.py ${1+"$@"}
     fi
 
 } ;;
