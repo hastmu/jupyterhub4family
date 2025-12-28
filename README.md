@@ -1,3 +1,5 @@
+**This is archvied, this is no longer of use.**
+
 # jupyterhub4family
 Jupyterhub instant on for Papa's and Mam's administrating their family ;) and all other who can make use of it.
 
